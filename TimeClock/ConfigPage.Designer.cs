@@ -125,8 +125,10 @@
             this.txt_FromEmailPass.Enabled = false;
             this.txt_FromEmailPass.Location = new System.Drawing.Point(12, 234);
             this.txt_FromEmailPass.Name = "txt_FromEmailPass";
+            this.txt_FromEmailPass.PasswordChar = '*';
             this.txt_FromEmailPass.Size = new System.Drawing.Size(260, 20);
             this.txt_FromEmailPass.TabIndex = 9;
+            this.txt_FromEmailPass.UseSystemPasswordChar = true;
             // 
             // txt_ToEmail
             // 
