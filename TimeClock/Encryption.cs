@@ -3,10 +3,9 @@ using System.Data;
 using System.Security.Cryptography;
 using System.IO;
 
-
 public class SimpleAES
 {
-    
+    // Change these keys
     private byte[] Key = { 147, 51, 126, 191, 233, 46, 40, 63, 110, 100, 42, 94, 254, 228, 83, 160, 229, 211, 103, 107, 92, 196, 201, 84, 102, 64, 166, 165, 201, 231, 5, 86 };
     private byte[] Vector = { 120, 55, 84, 10, 155, 155, 210, 144, 227, 93, 180, 196, 118, 240, 69, 219 };
 

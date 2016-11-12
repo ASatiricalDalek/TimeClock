@@ -31,6 +31,7 @@
             this.txt_name = new System.Windows.Forms.TextBox();
             this.btn_punchin = new System.Windows.Forms.Button();
             this.lbl_instructions = new System.Windows.Forms.Label();
+            this.lst_out = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txt_name
@@ -59,11 +60,20 @@
             this.lbl_instructions.TabIndex = 2;
             this.lbl_instructions.Text = "Instructions: Enter your name in the box below and click punch in";
             // 
+            // lst_out
+            // 
+            this.lst_out.FormattingEnabled = true;
+            this.lst_out.Location = new System.Drawing.Point(12, 106);
+            this.lst_out.Name = "lst_out";
+            this.lst_out.Size = new System.Drawing.Size(394, 199);
+            this.lst_out.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 92);
+            this.ClientSize = new System.Drawing.Size(418, 330);
+            this.Controls.Add(this.lst_out);
             this.Controls.Add(this.lbl_instructions);
             this.Controls.Add(this.btn_punchin);
             this.Controls.Add(this.txt_name);
@@ -80,6 +90,7 @@
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Button btn_punchin;
         private System.Windows.Forms.Label lbl_instructions;
+        private System.Windows.Forms.ListBox lst_out;
     }
 }
 
