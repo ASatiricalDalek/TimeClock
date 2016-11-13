@@ -32,6 +32,8 @@
             this.btn_punchin = new System.Windows.Forms.Button();
             this.lbl_instructions = new System.Windows.Forms.Label();
             this.lst_out = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_name
@@ -68,11 +70,33 @@
             this.lst_out.Size = new System.Drawing.Size(394, 199);
             this.lst_out.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(284, 330);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Reset PW";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(100, 330);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "ListSettings";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 330);
+            this.ClientSize = new System.Drawing.Size(418, 365);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lst_out);
             this.Controls.Add(this.lbl_instructions);
             this.Controls.Add(this.btn_punchin);
@@ -91,6 +115,8 @@
         private System.Windows.Forms.Button btn_punchin;
         private System.Windows.Forms.Label lbl_instructions;
         private System.Windows.Forms.ListBox lst_out;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

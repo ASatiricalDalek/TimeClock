@@ -49,7 +49,6 @@
             this.lbl_Advanced = new System.Windows.Forms.Label();
             this.txt_SMTP = new System.Windows.Forms.TextBox();
             this.txt_Port = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lbl_SMTPServer = new System.Windows.Forms.Label();
             this.lbl_Port = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -113,7 +112,7 @@
             this.txt_NewPass.Location = new System.Drawing.Point(12, 110);
             this.txt_NewPass.Name = "txt_NewPass";
             this.txt_NewPass.Size = new System.Drawing.Size(260, 20);
-            this.txt_NewPass.TabIndex = 6;
+            this.txt_NewPass.TabIndex = 3;
             this.txt_NewPass.UseSystemPasswordChar = true;
             // 
             // txt_ConfirmPassword
@@ -122,7 +121,7 @@
             this.txt_ConfirmPassword.Location = new System.Drawing.Point(12, 150);
             this.txt_ConfirmPassword.Name = "txt_ConfirmPassword";
             this.txt_ConfirmPassword.Size = new System.Drawing.Size(260, 20);
-            this.txt_ConfirmPassword.TabIndex = 7;
+            this.txt_ConfirmPassword.TabIndex = 5;
             this.txt_ConfirmPassword.UseSystemPasswordChar = true;
             // 
             // txt_FromEmail
@@ -131,16 +130,15 @@
             this.txt_FromEmail.Location = new System.Drawing.Point(12, 189);
             this.txt_FromEmail.Name = "txt_FromEmail";
             this.txt_FromEmail.Size = new System.Drawing.Size(260, 20);
-            this.txt_FromEmail.TabIndex = 8;
+            this.txt_FromEmail.TabIndex = 7;
             // 
             // txt_FromEmailPass
             // 
             this.txt_FromEmailPass.Enabled = false;
             this.txt_FromEmailPass.Location = new System.Drawing.Point(12, 234);
             this.txt_FromEmailPass.Name = "txt_FromEmailPass";
-            this.txt_FromEmailPass.PasswordChar = '*';
             this.txt_FromEmailPass.Size = new System.Drawing.Size(260, 20);
-            this.txt_FromEmailPass.TabIndex = 9;
+            this.txt_FromEmailPass.TabIndex = 8;
             this.txt_FromEmailPass.UseSystemPasswordChar = true;
             // 
             // txt_ToEmail
@@ -157,7 +155,7 @@
             this.btn_Submit.Location = new System.Drawing.Point(12, 380);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(315, 22);
-            this.btn_Submit.TabIndex = 11;
+            this.btn_Submit.TabIndex = 13;
             this.btn_Submit.Text = "Save";
             this.btn_Submit.UseVisualStyleBackColor = true;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
@@ -167,7 +165,7 @@
             this.btn_ConfirmPass.Location = new System.Drawing.Point(94, 53);
             this.btn_ConfirmPass.Name = "btn_ConfirmPass";
             this.btn_ConfirmPass.Size = new System.Drawing.Size(101, 23);
-            this.btn_ConfirmPass.TabIndex = 12;
+            this.btn_ConfirmPass.TabIndex = 2;
             this.btn_ConfirmPass.Text = "Submit";
             this.btn_ConfirmPass.UseVisualStyleBackColor = true;
             this.btn_ConfirmPass.Click += new System.EventHandler(this.btn_ConfirmPass_Click);
@@ -183,20 +181,22 @@
             // 
             // btn_NewPassShow
             // 
+            this.btn_NewPassShow.Enabled = false;
             this.btn_NewPassShow.Location = new System.Drawing.Point(278, 107);
             this.btn_NewPassShow.Name = "btn_NewPassShow";
             this.btn_NewPassShow.Size = new System.Drawing.Size(49, 24);
-            this.btn_NewPassShow.TabIndex = 14;
+            this.btn_NewPassShow.TabIndex = 4;
             this.btn_NewPassShow.Text = "Show";
             this.btn_NewPassShow.UseVisualStyleBackColor = true;
             this.btn_NewPassShow.Click += new System.EventHandler(this.btn_NewPassShow_Click);
             // 
             // btn_ConfPassShow
             // 
+            this.btn_ConfPassShow.Enabled = false;
             this.btn_ConfPassShow.Location = new System.Drawing.Point(278, 146);
             this.btn_ConfPassShow.Name = "btn_ConfPassShow";
             this.btn_ConfPassShow.Size = new System.Drawing.Size(49, 24);
-            this.btn_ConfPassShow.TabIndex = 15;
+            this.btn_ConfPassShow.TabIndex = 6;
             this.btn_ConfPassShow.Text = "Show";
             this.btn_ConfPassShow.UseVisualStyleBackColor = true;
             this.btn_ConfPassShow.Click += new System.EventHandler(this.btn_ConfPassShow_Click);
@@ -206,17 +206,18 @@
             this.btn_AdminPassShow.Location = new System.Drawing.Point(278, 24);
             this.btn_AdminPassShow.Name = "btn_AdminPassShow";
             this.btn_AdminPassShow.Size = new System.Drawing.Size(49, 24);
-            this.btn_AdminPassShow.TabIndex = 16;
+            this.btn_AdminPassShow.TabIndex = 1;
             this.btn_AdminPassShow.Text = "Show";
             this.btn_AdminPassShow.UseVisualStyleBackColor = true;
             this.btn_AdminPassShow.Click += new System.EventHandler(this.btn_AdminPassShow_Click);
             // 
             // btn_FrmEmailPassShow
             // 
+            this.btn_FrmEmailPassShow.Enabled = false;
             this.btn_FrmEmailPassShow.Location = new System.Drawing.Point(278, 231);
             this.btn_FrmEmailPassShow.Name = "btn_FrmEmailPassShow";
             this.btn_FrmEmailPassShow.Size = new System.Drawing.Size(49, 24);
-            this.btn_FrmEmailPassShow.TabIndex = 17;
+            this.btn_FrmEmailPassShow.TabIndex = 9;
             this.btn_FrmEmailPassShow.Text = "Show";
             this.btn_FrmEmailPassShow.UseVisualStyleBackColor = true;
             this.btn_FrmEmailPassShow.Click += new System.EventHandler(this.btn_FrmEmailPassShow_Click);
@@ -236,7 +237,7 @@
             this.txt_SMTP.Location = new System.Drawing.Point(12, 343);
             this.txt_SMTP.Name = "txt_SMTP";
             this.txt_SMTP.Size = new System.Drawing.Size(171, 20);
-            this.txt_SMTP.TabIndex = 19;
+            this.txt_SMTP.TabIndex = 11;
             // 
             // txt_Port
             // 
@@ -244,16 +245,7 @@
             this.txt_Port.Location = new System.Drawing.Point(224, 343);
             this.txt_Port.Name = "txt_Port";
             this.txt_Port.Size = new System.Drawing.Size(48, 20);
-            this.txt_Port.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(141, 216);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Advanced";
+            this.txt_Port.TabIndex = 12;
             // 
             // lbl_SMTPServer
             // 
@@ -280,7 +272,6 @@
             this.ClientSize = new System.Drawing.Size(339, 414);
             this.Controls.Add(this.lbl_Port);
             this.Controls.Add(this.lbl_SMTPServer);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_Port);
             this.Controls.Add(this.txt_SMTP);
             this.Controls.Add(this.lbl_Advanced);
@@ -332,7 +323,6 @@
         private System.Windows.Forms.Label lbl_Advanced;
         private System.Windows.Forms.TextBox txt_SMTP;
         private System.Windows.Forms.TextBox txt_Port;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_SMTPServer;
         private System.Windows.Forms.Label lbl_Port;
     }

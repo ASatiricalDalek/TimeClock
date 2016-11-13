@@ -15,7 +15,8 @@ namespace TimeClock
 {
     public partial class Form1 : Form
     {
-        SimpleAES encrypt = new SimpleAES();
+        //SimpleAES encrypt = new SimpleAES();
+        SimplerAES encrypt = new SimplerAES();
 
         public Form1()
         {
@@ -24,7 +25,14 @@ namespace TimeClock
 
         private void btn_punchin_Click(object sender, EventArgs e)
         {
-            NameCheck(txt_name.Text);
+            if(txt_name.Text != "")
+            {
+                NameCheck(txt_name.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a name");
+            }
         }
 
         private void NameCheck(string name)
@@ -42,7 +50,7 @@ namespace TimeClock
         private void Submit(string name)
         {
             string FromEmail = Properties.Settings.Default.FromEmail, ToEmail = Properties.Settings.Default.ToEmail;
-            string EmailPassword = encrypt.DecryptString(Properties.Settings.Default.FromEmailPassword);
+            string EmailPassword = encrypt.Decrypt(Properties.Settings.Default.FromEmailPassword);
             string smtp = Properties.Settings.Default.SMTPServer;
             int port = Properties.Settings.Default.Port;
 
@@ -60,6 +68,7 @@ namespace TimeClock
 
                 client.Send(message);
             }
+            MessageBox.Show("Punch In for " + name + " successfully registered at " + DateTime.Now);
         }
 
         private void AdminAccess()
@@ -73,7 +82,25 @@ namespace TimeClock
         {
             //Password encryption debugging tools
             lst_out.Items.Add(Properties.Settings.Default.AdminPassword);
-            lst_out.Items.Add(encrypt.DecryptString(Properties.Settings.Default.AdminPassword));
+            lst_out.Items.Add(encrypt.Decrypt(Properties.Settings.Default.AdminPassword));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AdminPassword = encrypt.Encrypt("test");
+            Properties.Settings.Default.Save();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lst_out.Items.Add(Properties.Settings.Default.AdminPassword);
+            lst_out.Items.Add(encrypt.Decrypt(Properties.Settings.Default.AdminPassword));
+            lst_out.Items.Add(Properties.Settings.Default.FromEmail);
+            lst_out.Items.Add(Properties.Settings.Default.FromEmailPassword);
+            lst_out.Items.Add(encrypt.Decrypt(Properties.Settings.Default.FromEmailPassword));
+            lst_out.Items.Add(Properties.Settings.Default.ToEmail);
+            lst_out.Items.Add(Properties.Settings.Default.SMTPServer);
+            lst_out.Items.Add(Properties.Settings.Default.Port);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace TimeClock
     public partial class ConfigPage : Form
     {
 
-        SimpleAES encrypt = new SimpleAES();
+        SimplerAES encrypt = new SimplerAES();
 
         public ConfigPage()
         {
@@ -23,9 +23,10 @@ namespace TimeClock
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+
             Properties.Settings.Default.AdminPassword = PassCheck(txt_NewPass.Text, txt_ConfirmPassword.Text);
             Properties.Settings.Default.FromEmail = NullCheck(Properties.Settings.Default.FromEmail, txt_FromEmail.Text);
-            Properties.Settings.Default.FromEmailPassword = NullCheck(Properties.Settings.Default.FromEmailPassword, encrypt.EncryptToString(txt_FromEmailPass.Text)); 
+            Properties.Settings.Default.FromEmailPassword = EncryptedNullCheck(Properties.Settings.Default.FromEmailPassword, txt_FromEmailPass.Text); 
             Properties.Settings.Default.ToEmail = NullCheck(Properties.Settings.Default.ToEmail, txt_ToEmail.Text);
 
             Properties.Settings.Default.Save();
@@ -33,11 +34,20 @@ namespace TimeClock
 
         }
 
+        
+
         private string PassCheck(string pass, string confirmPass)
         {
             if (pass == confirmPass)
             {
-                return encrypt.EncryptToString(pass);
+                if (pass != "")
+                {
+                    return encrypt.Encrypt(pass);
+                }
+                else
+                {
+                    return Properties.Settings.Default.AdminPassword;
+                }
             }
             else
             {
@@ -59,12 +69,24 @@ namespace TimeClock
             }
         }
 
+        private string EncryptedNullCheck(string setting, string entry)
+        {
+            if (string.IsNullOrEmpty(entry) == true)
+            {
+                return setting;
+            }
+            else
+            {
+                return encrypt.Encrypt(entry);
+            }
+        }
+
         private void btn_ConfirmPass_Click(object sender, EventArgs e)
         {
             string AttemptedPassword, ActualPassword;
                     
             AttemptedPassword = txt_AdminPass.Text;
-            ActualPassword = encrypt.DecryptString(Properties.Settings.Default.AdminPassword);
+            ActualPassword = encrypt.Decrypt(Properties.Settings.Default.AdminPassword);
             
             if(AttemptedPassword == ActualPassword)
             {
@@ -93,6 +115,10 @@ namespace TimeClock
             txt_Port.Enabled = tf;
 
             btn_Submit.Enabled = tf;
+
+            btn_ConfPassShow.Enabled = tf;
+            btn_FrmEmailPassShow.Enabled = tf;
+            btn_NewPassShow.Enabled = tf;
         }
 
         private void PopulateSettings()
