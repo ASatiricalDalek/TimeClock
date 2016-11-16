@@ -293,8 +293,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Password);
             this.Controls.Add(this.txt_AdminPass);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ConfigPage";
-            this.Text = "ConfigPage";
+            this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 
