@@ -23,14 +23,22 @@ namespace TimeClock
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+            string PortString;
+
+            PortString = NullCheck(Properties.Settings.Default.Port.ToString(), txt_Port.Text);
 
             Properties.Settings.Default.AdminPassword = PassCheck(txt_NewPass.Text, txt_ConfirmPassword.Text);
             Properties.Settings.Default.FromEmail = NullCheck(Properties.Settings.Default.FromEmail, txt_FromEmail.Text);
             Properties.Settings.Default.FromEmailPassword = EncryptedNullCheck(Properties.Settings.Default.FromEmailPassword, txt_FromEmailPass.Text); 
             Properties.Settings.Default.ToEmail = NullCheck(Properties.Settings.Default.ToEmail, txt_ToEmail.Text);
+            Properties.Settings.Default.SMTPServer = NullCheck(Properties.Settings.Default.SMTPServer, txt_SMTP.Text);
+            Properties.Settings.Default.Port = Convert.ToInt32(PortString);
+            
+
+
 
             Properties.Settings.Default.Save();
-            MessageBox.Show("Settins updated");
+            MessageBox.Show("Settings updated");
 
         }
 

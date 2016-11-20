@@ -60,15 +60,27 @@ namespace TimeClock
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(FromEmail, EmailPassword);
-                
 
-                MailMessage message = new MailMessage(FromEmail, ToEmail, "Punch In: " + name + " " + System.DateTime.Now,
-                    "Employee " + name + " has punched in with a local time stamp of " + System.DateTime.Now +  ". This should match the" 
+                try
+                {
+                    MailMessage message = new MailMessage(FromEmail, ToEmail, "Punch In: " + name + " " + System.DateTime.Now,
+                    "Employee " + name + " has punched in with a local time stamp of " + System.DateTime.Now + ". This should match the"
                     + "time this email  was recieved, if it does not, please confirm the local time on the client machine is accurate.");
 
-                client.Send(message);
+                    client.Send(message);
+
+                    MessageBox.Show("Punch In for " + name + " successfully registered at " + DateTime.Now);
+                }
+                catch (FormatException e)
+                {
+                    MessageBox.Show(e.Message + " This may mean the 'To' or 'From' email address is improperly formatted, please contact your system's administrator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (SmtpException e)
+                {
+                    MessageBox.Show(e.Message + " Check the 'From' Email address password and/or SMTP settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            MessageBox.Show("Punch In for " + name + " successfully registered at " + DateTime.Now);
+            
         }
 
         private void AdminAccess()
